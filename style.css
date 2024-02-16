@@ -1,0 +1,112 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --size:300px;
+}
+body{
+  background: #123;
+}
+.container{
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 45px;
+  padding: 50px;
+}
+.container .notes{
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 45px;
+}
+.container .notes .note{
+  position: relative;
+  height: var(--size);
+  width: var(--size);
+  background: #ff2456;
+  padding: 20px;
+  box-shadow:0 15px 25px #111;
+}
+.container .notes .note::before{
+  content: 'Double click to remove text';
+  position: absolute;
+ left: 0;
+ bottom: 0;
+ padding: 3px 0;
+ background: rgba(255,255,255,.2);
+ width: 100%;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ opacity: 0;
+ transition:.5s ;
+ font-size: .89em;
+}
+.container .notes .note:hover::before{
+  opacity: 1;
+}
+#create{
+  position: relative;
+  height: var(--size);
+  width: var(--size);
+  background: #686868;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+#create span{
+  color: #fff;
+  position: absolute;
+  font-size: 7em;
+}
+.createBox{
+  position: relative;
+  height: var(--size);
+  width: var(--size);
+  z-index: 1000;
+  display: none;
+}
+.createBox textarea{
+  position: absolute;
+  height: var(--size);
+  width:var(--size);
+  top: 0;
+  left: 0;
+  padding: 20px;
+  outline: none;
+  font-size: 2em;
+  resize: none;
+  background: #fff;
+}
+.details{
+  padding: 2px;
+  overflow-y: scroll;
+}
+.details span{
+  font-size: 1.25em;
+  color: #fff;
+  user-select: none;
+ position:relative;
+}
+
+@media screen and (max-width:600px)
+{
+  :root{
+    --size:200px;
+  }
+  .container .notes .note{
+    height:var(--size) ;
+  }
+  .createBox textarea{
+    font-size: 1.5em;
+  }
+}
